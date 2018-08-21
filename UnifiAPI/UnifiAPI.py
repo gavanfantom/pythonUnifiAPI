@@ -1131,3 +1131,18 @@ class UnifiAPI:
             "enabled": enabled,
             "site_id": site_id
         })
+
+    def powercycle_port(self, mac, port):
+        """
+        Power cycle a port
+        :param mac:
+        :param port:
+        :return:
+        """
+        content = self.sitecmdjson('/cmd/devmgr', {
+            "cmd": "power-cycle",
+            "mac": mac,
+            "port_idx": port
+        })
+        return self.response(content, inspect.stack()[0].function, 'Power cycle port')
+
