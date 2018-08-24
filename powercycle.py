@@ -89,7 +89,7 @@ if error:
     exit(1)
 
 if not args.n:
-    u = UnifiAPI(username=username, password=password, debug=args.debug)
+    u = UnifiAPI(username=username, password=password, baseurl=controller, debug=args.debug)
     u.login()
 
 for device in devices:
